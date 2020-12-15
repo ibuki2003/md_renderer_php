@@ -3,7 +3,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/markdown.php';
 
 class GitHubMarkdownMath extends \cebe\markdown\GithubMarkdown {
-    public $html5 = false;
+    public $html5 = true;
+    public $enableNewlines = true;
 
     /**
      * @marker $
