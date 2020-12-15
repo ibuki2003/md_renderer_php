@@ -6,5 +6,7 @@
             "email": "main@fuwa.dev"
         }
     ],
-    "require": {}
+    "require": {
+        "cebe/markdown": "^1.2"
+    }
 }
