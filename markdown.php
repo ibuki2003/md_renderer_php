@@ -1,7 +1,7 @@
 <?php
 
 function get_file_path($uri) {
-    return __DIR__ . '/data/' . $uri;
+    return __DIR__ . '/data/' . $uri . '/index.md';
 }
 
 function get_md_title($content) {
