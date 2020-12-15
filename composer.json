@@ -1,0 +1,10 @@
+{
+    "name": "fuwa/markdown",
+    "authors": [
+        {
+            "name": "ibuki2003",
+            "email": "main@fuwa.dev"
+        }
+    ],
+    "require": {}
+}
