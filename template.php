@@ -20,8 +20,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
 
-    <script src="/markdown/markdown.js"></script>
-
     <title><?=$title ? $title . ' - ' : '' ?>ふわわあのへや</title>
 </head>
 <body class="bg-light">
@@ -55,6 +53,22 @@
 <? endforeach ?>
         </ul>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        window.$ = jQuery;
+        function unsanitize(html) {
+            return $('<div />').html(html).text();
+        }
+        $(()=>{
+            window.hljs.initHighlightingOnLoad();
+            $('.tex').each(function(i,e){
+                var tex = unsanitize(e.innerHTML);
+                katex.render(tex, e, {
+                    displayMode: e.nodeName == 'P'
+                });
+                e.title=tex;
+            });
+        });
+    </script>
     </body>
 </html>
