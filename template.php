@@ -26,7 +26,6 @@
             return e.innerText;
         }
         window.addEventListener('load', ()=>{
-            window.hljs.initHighlightingOnLoad();
             Array.from(document.getElementsByClassName('tex')).forEach(function(e){
                 var tex = unsanitize(e.innerHTML);
                 katex.render(tex, e, {
@@ -34,6 +33,7 @@
                 });
                 e.title=tex;
             });
+            window.hljs.initHighlighting();
         });
     </script>
 
