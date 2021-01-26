@@ -19,6 +19,23 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script>
+        function unsanitize(html) {
+            const e = document.createElement('div');
+            e.innerHTML = html;
+            return e.innerText;
+        }
+        window.addEventListener('load', ()=>{
+            window.hljs.initHighlightingOnLoad();
+            Array.from(document.getElementsByClassName('tex')).forEach(function(e){
+                var tex = unsanitize(e.innerHTML);
+                katex.render(tex, e, {
+                    displayMode: e.nodeName == 'P'
+                });
+                e.title=tex;
+            });
+        });
+    </script>
 
     <title><?=$title ? $title . ' - ' : '' ?>ふわわあのへや</title>
 </head>
@@ -53,22 +70,5 @@
 <? endforeach ?>
         </ul>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script>
-        window.$ = jQuery;
-        function unsanitize(html) {
-            return $('<div />').html(html).text();
-        }
-        $(()=>{
-            window.hljs.initHighlightingOnLoad();
-            $('.tex').each(function(i,e){
-                var tex = unsanitize(e.innerHTML);
-                katex.render(tex, e, {
-                    displayMode: e.nodeName == 'P'
-                });
-                e.title=tex;
-            });
-        });
-    </script>
     </body>
 </html>
