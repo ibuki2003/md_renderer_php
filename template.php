@@ -6,8 +6,8 @@
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'UA-132805532-1');
+    gtag('js', new Date());
+    gtag('config', 'UA-132805532-1');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
