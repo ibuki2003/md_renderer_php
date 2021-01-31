@@ -54,6 +54,22 @@ main {
     }
 }
 
+footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer ul {
+    padding: 0;
+}
+footer ul li {
+    display: inline-block;
+}
+footer ul li img {
+    height: 1rem;
+}
+
 a, a:visited {
     color: #0d6efd;
 }
@@ -86,22 +102,6 @@ code {
 
 p.katex {
     background: rgba(33, 90, 160, .03);
-}
-
-footer {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-footer ul {
-    padding: 0;
-}
-footer ul li {
-    display: inline-block;
-}
-footer ul li img {
-    height: 1rem;
 }
 
 table {
